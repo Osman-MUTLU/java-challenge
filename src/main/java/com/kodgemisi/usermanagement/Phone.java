@@ -15,14 +15,19 @@ public class Phone implements CharSequence {
 			if(phoneNumber.charAt(0) != '+'){
 				throw new IllegalArgumentException(phoneNumber);
 			}
+			else if(phoneNumber.contains("+90")){
+				if(phoneNumber.length() != 13){
+					throw new IllegalArgumentException(phoneNumber);
+				}
+			}
 			else{
-				this.phoneNumber = phoneNumber;
+				if(phoneNumber.length() < 5){
+					throw new IllegalArgumentException(phoneNumber);
+				}
 			}
 		}
-		else{
-			
-			this.phoneNumber = phoneNumber;
-		}
+		
+		this.phoneNumber = phoneNumber == null ? "" : phoneNumber;
 		
 	}
 
