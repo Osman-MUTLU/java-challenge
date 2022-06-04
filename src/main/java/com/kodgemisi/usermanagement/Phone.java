@@ -8,7 +8,13 @@ public class Phone implements CharSequence {
 	private final String phoneNumber;
 
 	public Phone(String phoneNumber) {
-		this.phoneNumber = phoneNumber == null ? "" : phoneNumber;
+		if(phoneNumber == null || phoneNumber.equals("")){
+			throw new IllegalArgumentException(phoneNumber);
+		}
+		else{
+			this.phoneNumber = phoneNumber;
+		}
+		
 	}
 
 	public String number() {
