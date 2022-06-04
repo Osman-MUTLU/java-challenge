@@ -11,7 +11,16 @@ public class Phone implements CharSequence {
 		if(phoneNumber == null || phoneNumber.equals("")){
 			throw new IllegalArgumentException(phoneNumber);
 		}
+		else if(!(phoneNumber.equals("911")|| phoneNumber.equals("112"))){
+			if(phoneNumber.charAt(0) != '+'){
+				throw new IllegalArgumentException(phoneNumber);
+			}
+			else{
+				this.phoneNumber = phoneNumber;
+			}
+		}
 		else{
+			
 			this.phoneNumber = phoneNumber;
 		}
 		
