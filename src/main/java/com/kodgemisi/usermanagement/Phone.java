@@ -9,20 +9,23 @@ public class Phone implements CharSequence {
 
 	public Phone(String phoneNumber) {
 		if(phoneNumber == null || phoneNumber.equals("")){
-			throw new IllegalArgumentException(phoneNumber);
+			throw new IllegalArgumentException("Phone number is not null!");
+		}
+		else if( phoneNumber.equals("")){
+			throw new IllegalArgumentException("Phone number is not empty!");
 		}
 		else if(!(phoneNumber.equals("911")|| phoneNumber.equals("112"))){
 			if(phoneNumber.charAt(0) != '+'){
-				throw new IllegalArgumentException(phoneNumber);
+				throw new IllegalArgumentException("Phone number must be start with '+'.");
 			}
 			else if(phoneNumber.contains("+90")){
 				if(phoneNumber.length() != 13){
-					throw new IllegalArgumentException(phoneNumber);
+					throw new IllegalArgumentException("Phone number size must be equal 13 when it starts with '+90'");
 				}
 			}
 			else{
 				if(phoneNumber.length() < 5){
-					throw new IllegalArgumentException(phoneNumber);
+					throw new IllegalArgumentException("Phone number size must be longer than 4");
 				}
 			}
 		}
