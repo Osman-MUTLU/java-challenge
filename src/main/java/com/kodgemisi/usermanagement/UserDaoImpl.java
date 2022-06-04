@@ -56,8 +56,8 @@ public class UserDaoImpl implements UserDao {
 		if (user.isNew()) {
 			throw new IllegalArgumentException("You can only update existing users (users with id). This user has no id");
 		}
-
-		return userMap.put(user.getId(), user);
+		//https://www.geeksforgeeks.org/concurrenthashmap-compute-method-in-java-with-examples/
+		return userMap.compute(user.getId(),(key,val) -> user);
 	}
 
 	@Override
